@@ -19,7 +19,14 @@ Benefits of using JsonPowerDB
 
 Screenshots:
 
+JsonDb:
+
 ![jsobdb1](https://user-images.githubusercontent.com/48131026/109433612-46876380-7a37-11eb-9914-16dc36f62f02.PNG)
+
+Index:
+
+![emp](https://user-images.githubusercontent.com/48131026/109433809-50f62d00-7a38-11eb-9c10-4d79bf22020a.PNG)
+
 
 Registration:
 
