@@ -24,3 +24,9 @@ Screenshots:
 Registration:
 
 ![registration](https://user-images.githubusercontent.com/48131026/109433709-cb727d00-7a37-11eb-8bfc-160392f64c90.PNG)
+
+Update:
+
+
+![update](https://user-images.githubusercontent.com/48131026/109433751-0bd1fb00-7a38-11eb-90d4-910e4677d5e3.PNG)
+
