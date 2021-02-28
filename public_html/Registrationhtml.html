@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Registration Project</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    </head>
+    <body>
+    <center><h1> Employee Registration Form</h1></center>
+    <form action="" method="post">
+        <table border="0" align="center">
+            <tbody>
+
+                <tr>
+                    <td><label for="Id">Employee ID: </label></td>
+                    <td><input type="text"  id="ID"  name="ID" /></td>
+                </tr>
+                <tr>
+                    <td><label for="name">Full Name: </label></td>
+                    <td><input  type="text" id="name"  name="name"  /></td>
+                </tr>
+
+
+                <tr>
+                    <td><label for="email">Email Address:</labelt></td>
+                    <td><input type="text" id="email" name="email"  /></td>
+                </tr>
+
+
+                <tr>
+                    <td><label for="Mobile">Mobile:</label></td>
+                    <td><input type="text" id="Mobile" maxlength="10" name="Mobile"
+                               /></td>
+                <tr>
+                    <td><label for="DOB">DOB: </label></td>
+                    <td><input type="Date" id="DOB" name="DOB"  /></td>
+                </tr>
+
+                <tr>
+                    <td><label for="Gender">Gender: </label></td>
+                    <td><input type="text"  id="Gender"  name="Gender" /></td>
+                </tr>
+
+
+
+                <tr>
+                    <td><label for="password">Password:</label></td>
+                    <td><input      type="password" id="password"  name="password" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td align="right"><input type="button" value="Register" onclick="registerEmployee();"/></td>
+                </tr>
+
+            </tbody>
+        </table>
+    </form>
+
+    <script>
+
+        function createPUTRequest(connToken, jsonObj, dbName, relName) {
+            var putRequest = "{\n"
+                    + "\"token\" : \""
+                    + connToken
+                    + "\","
+                    + "\"dbName\": \""
+                    + dbName
+                    + "\",\n" + "\"cmd\" : \"PUT\",\n"
+                    + "\"rel\" : \""
+                    + relName + "\","
+                    + "\"jsonStr\": \n"
+                    + jsonObj
+                    + "\n"
+                    + "}";
+            return putRequest;
+        }
+        function executeCommand(reqString, dbBaseUrl, apiEndPointUrl) {
+            var url = dbBaseUrl + apiEndPointUrl;
+            var jsonObj;
+            $.post(url, reqString, function (result) {
+                jsonObj = JSON.parse(result);
+            }).fail(function (result) {
+                var dataJsonObj = result.responseText;
+                jsonObj = JSON.parse(dataJsonObj);
+            });
+            return jsonObj;
+        }
+
+        function validateAndGetFormData() {
+
+
+            var ID = document.getElementById("ID").value;
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var Mobile = document.getElementById("Mobile").value;
+            var DOB = document.getElementById("DOB").value;
+            var Gender = document.getElementById("Gender").value;
+            var password = document.getElementById("password").value;
+
+            var jsonStrObj = {
+                ID: ID,
+                EmployeeName: name,
+                Email: email,
+                Mobile: Mobile,
+                DOB: DOB,
+                Gender: Gender,
+                Password: password,
+            };
+            return JSON.stringify(jsonStrObj);
+        }
+
+        function resetForm() {
+            $("#ID").val("")
+            $("#name").val("");
+            $("#email").val("");
+            $("#Mobile").val("");
+            $("#DOB").val("");
+            $("#Gender").val("");
+            $("#password").val("");
+            $("#ID").focus();
+        }
+
+        function registerEmployee() {
+
+            var jsonStr = validateAndGetFormData();
+            if (jsonStr === "") {
+                return;
+            }
+            var putReqStr = createPUTRequest("90935320|-31948798526695856|90934451",
+                    jsonStr, "EmployeeDetail", "Employee-Data");
+            alert(putReqStr);
+            jQuery.ajaxSetup({async: false});
+            var resultObj = executeCommand(putReqStr,
+                    "http://api.login2explore.com:5577", "/api/iml");
+            jQuery.ajaxSetup({async: true});
+            alert("INSERTED " + JSON.stringify(resultObj));
+            resetForm();
+        }
+    </script>
+</body>
+</html>
