@@ -37,3 +37,8 @@ Update:
 
 ![update](https://user-images.githubusercontent.com/48131026/109433751-0bd1fb00-7a38-11eb-90d4-910e4677d5e3.PNG)
 
+Show:
+
+![show](https://user-images.githubusercontent.com/48131026/109433845-7b47ea80-7a38-11eb-979e-0e1c491e6e0b.PNG)
+
+
