@@ -32,13 +32,18 @@ Registration:
 
 ![registration](https://user-images.githubusercontent.com/48131026/109433709-cb727d00-7a37-11eb-8bfc-160392f64c90.PNG)
 
-Update:
+Update Employee Detail:
 
 
 ![update](https://user-images.githubusercontent.com/48131026/109433751-0bd1fb00-7a38-11eb-90d4-910e4677d5e3.PNG)
 
-Show:
+Show Employee Detail:
 
 ![show](https://user-images.githubusercontent.com/48131026/109433845-7b47ea80-7a38-11eb-979e-0e1c491e6e0b.PNG)
+
+Delete Employee Detail:
+
+![delete](https://user-images.githubusercontent.com/48131026/109433876-9d416d00-7a38-11eb-8af9-0e79a2f3fec8.PNG)
+
 
 
